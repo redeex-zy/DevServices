@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - DevServices | Showcase of Our Work</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">DevServices</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="btn">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Our Portfolio</h1>
+            <p>Showcase of completed projects for satisfied clients. Each project is custom-built to solve specific problems.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <section class="container" style="padding: 2rem 0;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h2>Project Categories</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.5rem;">
+                <button class="btn" onclick="filterProjects('all')" style="background: var(--primary); color: white;">All Projects</button>
+                <button class="btn" onclick="filterProjects('discord-bot')">Discord Bots</button>
+                <button class="btn" onclick="filterProjects('server-setup')">Server Setups</button>
+                <button class="btn" onclick="filterProjects('website')">Websites</button>
+                <button class="btn" onclick="filterProjects('custom')">Custom Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Projects -->
+    <section class="container" style="padding: 2rem 0 4rem;">
+        <div id="portfolio-grid" class="portfolio-grid">
+            <!-- Discord Bot Projects -->
+            <div class="portfolio-item" data-category="discord-bot">
+                <div class="portfolio-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    Gaming Community Bot
+                </div>
+                <div class="portfolio-content">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3>Multi-Game Discord Bot</h3>
+                        <span style="background: var(--primary); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">Discord Bot</span>
+                    </div>
+                    <p>A comprehensive gaming bot for a 5,000+ member community with multiple games, tournaments, and leveling systems.</p>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Features:</h4>
+                    <ul class="feature-list">
+                        <li>4 different mini-games with leaderboards</li>
+                        <li>Tournament management system</li>
+                        <li>Leveling & economy with shop</li>
+                        <li>Auto-moderation & welcome system</li>
+                        <li>Custom dashboard for admin control</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Technologies:</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">discord.js</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Node.js</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">MongoDB</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Express.js</span>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p><strong>Client Feedback:</strong> "Increased engagement by 40% and reduced moderation workload by 60%."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Website Project -->
+            <div class="portfolio-item" data-category="website">
+                <div class="portfolio-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    E-commerce Website
+                </div>
+                <div class="portfolio-content">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3>Online Fashion Store</h3>
+                        <span style="background: var(--secondary); color: var(--dark); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">Website</span>
+                    </div>
+                    <p>A fully responsive e-commerce website for a fashion boutique with product management, cart, and secure checkout.</p>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Features:</h4>
+                    <ul class="feature-list">
+                        <li>Product catalog with filters & search</li>
+                        <li>Shopping cart with guest checkout</li>
+                        <li>Stripe payment integration</li>
+                        <li>User accounts & order history</li>
+                        <li>Admin dashboard for inventory</li>
+                        <li>Mobile-responsive design</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Technologies:</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">React.js</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Node.js</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">MongoDB</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Stripe API</span>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p><strong>Result:</strong> 25% increase in online sales within first month of launch.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Server Setup Project -->
+            <div class="portfolio-item" data-category="server-setup">
+                <div class="portfolio-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    Tech Community Server
+                </div>
+                <div class="portfolio-content">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3>Developer Community Server</h3>
+                        <span style="background: var(--primary-dark); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">Server Setup</span>
+                    </div>
+                    <p>Complete Discord server setup for a 10,000+ member tech community with advanced moderation and engagement systems.</p>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Features:</h4>
+                    <ul class="feature-list">
+                        <li>Organized channel structure (15+ categories)</li>
+                        <li>Advanced role hierarchy (20+ roles)</li>
+                        <li>Custom moderation bots</li>
+                        <li>Reaction roles & auto-roles</li>
+                        <li>Ticketing system for support</li>
+                        <li>Resource sharing system</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Integrated Bots:</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Custom Mod Bot</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Ticket Tool</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Auto-Moderator</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Welcome Bot</span>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p><strong>Client Feedback:</strong> "Server organization reduced moderation time by 70% and improved member satisfaction."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Custom Project -->
+            <div class="portfolio-item" data-category="custom">
+                <div class="portfolio-img" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    Automation System
+                </div>
+                <div class="portfolio-content">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3>Social Media Automation Tool</h3>
+                        <span style="background: var(--gray); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">Custom Project</span>
+                    </div>
+                    <p>Custom automation software for scheduling and posting content across multiple social media platforms.</p>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Features:</h4>
+                    <ul class="feature-list">
+                        <li>Multi-platform scheduling (Twitter, Discord, Instagram)</li>
+                        <li>Content calendar with drag & drop</li>
+                        <li>Analytics dashboard</li>
+                        <li>Auto-formatting for each platform</li>
+                        <li>Bulk upload & scheduling</li>
+                        <li>Team collaboration features</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Technologies:</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Python</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Flask</span>
+                        <span style="content: ' ';"> </span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">React.js</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">PostgreSQL</span>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p><strong>Result:</strong> Saved client 15+ hours per week on social media management.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Discord Bot 2 -->
+            <div class="portfolio-item" data-category="discord-bot">
+                <div class="portfolio-img" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    Music & Entertainment Bot
+                </div>
+                <div class="portfolio-content">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3>24/7 Music Bot</h3>
+                        <span style="background: var(--primary); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">Discord Bot</span>
+                    </div>
+                    <p>Advanced music bot with high-quality audio, playlist management, and entertainment features for a music-focused community.</p>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Features:</h4>
+                    <ul class="feature-list">
+                        <li>High-quality audio from multiple sources</li>
+                        <li>Playlist saving & management</li>
+                        <li>Lyrics display</li>
+                        <li>Radio stations (24/7 streams)</li>
+                        <li>DJ role system</li>
+                        <li>Sound effects & voice filters</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Technologies:</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">discord.js</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">LavaLink</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">Redis</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">YouTube API</span>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p><strong>Client Feedback:</strong> "Our community engagement doubled after adding this music bot."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Website 2 -->
+            <div class="portfolio-item" data-category="website">
+                <div class="portfolio-img" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    Business Website
+                </div>
+                <div class="portfolio-content">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3>Consulting Firm Website</h3>
+                        <span style="background: var(--secondary); color: var(--dark); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">Website</span>
+                    </div>
+                    <p>Professional website for a business consulting firm with service pages, team profiles, and client portal.</p>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Features:</h4>
+                    <ul class="feature-list">
+                        <li>Responsive design with animations</li>
+                        <li>Service pages with pricing tables</li>
+                        <li>Team member profiles</li>
+                        <li>Client testimonial slider</li>
+                        <li>Contact form with calendly integration</li>
+                        <li>Blog with CMS</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 1.5rem; color: var(--primary);">Technologies:</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">HTML/CSS/JS</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">PHP</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">WordPress</span>
+                        <span style="background: #f0f4f8; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem;">MySQL</span>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p><strong>Result:</strong> 40% increase in consultation requests after website launch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Empty State -->
+        <div id="no-projects" style="display: none; text-align: center; padding: 4rem; background: #f8f9fa; border-radius: 10px;">
+            <i class="fas fa-search" style="font-size: 3rem; color: var(--gray); margin-bottom: 1rem;"></i>
+            <h3>No Projects Found</h3>
+            <p>No projects match the selected filter. Try another category.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section style="background-color: #f0f4f8; padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Client Testimonials</h2>
+            
+            <div class="cards">
+                <div class="card">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 1rem;">JD</div>
+                        <div>
+                            <h4 style="margin: 0;">John Doe</h4>
+                            <p style="color: var(--gray); margin: 0; font-size: 0.9rem;">Gaming Community Owner</p>
+                        </div>
+                    </div>
+                    <p>"The Discord bot DevServices built for our community completely transformed how we manage our server. Engagement is up and moderation workload is down. Highly recommended!"</p>
+                    <div style="color: #ffc107; margin-top: 1rem;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="width: 50px; height: 50px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--dark); font-weight: bold; margin-right: 1rem;">SJ</div>
+                        <div>
+                            <h4 style="margin: 0;">Sarah Johnson</h4>
+                            <p style="color: var(--gray); margin: 0; font-size: 0.9rem;">Small Business Owner</p>
+                        </div>
+                    </div>
+                    <p>"Our new website looks fantastic and works perfectly on all devices. The developer was professional, met all deadlines, and provided excellent support after launch."</p>
+                    <div style="color: #ffc107; margin-top: 1rem;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="width: 50px; height: 50px; background: var(--primary-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 1rem;">MR</div>
+                        <div>
+                            <h4 style="margin: 0;">Mike Roberts</h4>
+                            <p style="color: var(--gray); margin: 0; font-size: 0.9rem;">Tech Community Admin</p>
+                        </div>
+                    </div>
+                    <p>"The server setup service was exactly what we needed. Our Discord server is now organized, secure, and easy to manage. The custom bots work flawlessly."</p>
+                    <div style="color: #ffc107; margin-top: 1rem;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">Like What You See?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; opacity: 0.9;">
+                Let's work together on your next project. Contact me today to discuss your ideas.
+            </p>
+            <a href="contact.html" class="btn btn-secondary btn-large">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DevServices</h3>
+                    <p>Professional Discord and web development services. Custom solutions for communities and businesses.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Form</a></li>
+                        <li><a href="mailto:contact@devservices.com">Email: contact@devservices.com</a></li>
+                        <li><a href="https://discord.gg/JgxsvNQJrV">Discord Server</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 DevServices. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Portfolio Filtering Function
+        function filterProjects(category) {
+            const projects = document.querySelectorAll('.portfolio-item');
+            const noProjects = document.getElementById('no-projects');
+            let visibleCount = 0;
+            
+            projects.forEach(project => {
+                if (category === 'all' || project.getAttribute('data-category') === category) {
+                    project.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+            
+            // Show/hide no projects message
+            if (visibleCount === 0) {
+                noProjects.style.display = 'block';
+            } else {
+                noProjects.style.display = 'none';
+            }
+            
+            // Update active button
+            document.querySelectorAll('.portfolio-section .btn').forEach(btn => {
+                btn.style.background = '';
+                btn.style.color = '';
+            });
+            
+            event.target.style.background = 'var(--primary)';
+            event.target.style.color = 'white';
+        }
+    </script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

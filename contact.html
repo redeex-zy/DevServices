@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - DevServices | Start Your Project</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    <style>
+        /* Additional styles for contact page */
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .form-note {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .required {
+            color: #dc3545;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-method {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">DevServices</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="btn active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Start Your Project</h1>
+            <p>Fill out the form below and I'll get back to you within 24 hours. Let's build something amazing together!</p>
+        </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="container" style="padding: 4rem 0;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+            <!-- Left Column: Contact Form -->
+            <div>
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Project Inquiry Form</h2>
+                
+                <div class="form-note">
+                    <p><i class="fas fa-info-circle"></i> <strong>Tip:</strong> The more details you provide, the more accurate my quote will be.</p>
+                </div>
+                
+                <form id="contactForm" action="https://formspree.io/f/xgowrnnb" method="POST">
+                    <!-- Formspree Hidden Fields -->
+                    <input type="hidden" name="_replyto" value="zyredex@gmail.com">
+                    <input type="hidden" name="_subject" value="New Project Inquiry - DevServices">
+                    <input type="hidden" name="_cc" value="zyredex@gmail.com">
+                    
+                    <!-- Personal Information -->
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: var(--primary);"><i class="fas fa-user"></i> Your Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" class="form-control" required placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="john@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="discord">Discord Username (Optional)</label>
+                            <input type="text" id="discord" name="discord" class="form-control" placeholder="username#1234">
+                            <small style="color: var(--gray); font-size: 0.85rem;">For faster communication</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Details -->
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: var(--primary);"><i class="fas fa-project-diagram"></i> Project Details</h3>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In <span class="required">*</span></label>
+                            <select id="service" name="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="discord-bot">Discord Bot Development</option>
+                                <option value="server-setup">Discord Server Setup</option>
+                                <option value="website">Website Development</option>
+                                <option value="custom">Custom Project</option>
+                                <option value="multiple">Multiple Services</option>
+                                <option value="other">Other/Not Sure</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Description <span class="required">*</span></label>
+                            <textarea id="message" name="message" class="form-control" required 
+                                      placeholder="Describe your project in detail. Include:
+• What you want to achieve
+• Features you need
+• Any specific requirements
+• Examples or references (if any)"
+                                      rows="6"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Budget & Timeline -->
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1rem; color: var(--primary);"><i class="fas fa-calculator"></i> Budget & Timeline</h3>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label for="budget">Budget Range (Optional)</label>
+                                <select id="budget" name="budget" class="form-control">
+                                    <option value="">Select budget range</option>
+                                    <option value="50-150">$50 - $150</option>
+                                    <option value="150-300">$150 - $300</option>
+                                    <option value="300-500">$300 - $500</option>
+                                    <option value="500-1000">$500 - $1,000</option>
+                                    <option value="1000+">$1,000+</option>
+                                    <option value="not-sure">Not sure/Need quote</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="deadline">Desired Deadline (Optional)</label>
+                                <select id="deadline" name="deadline" class="form-control">
+                                    <option value="">Select timeline</option>
+                                    <option value="1-week">Within 1 week</option>
+                                    <option value="2-weeks">Within 2 weeks</option>
+                                    <option value="1-month">Within 1 month</option>
+                                    <option value="flexible">Flexible/No rush</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reference">How did you hear about me? (Optional)</label>
+                            <input type="text" id="reference" name="reference" class="form-control" placeholder="Discord, Google, Friend, YouTube, etc.">
+                        </div>
+                    </div>
+                    
+                    <!-- Terms & Submit -->
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                        <!-- Honeypot for spam protection -->
+                        <input type="text" name="_gotcha" style="display:none">
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" name="agree" required style="margin-top: 0.3rem;">
+                                <span>
+                                    I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a> <span class="required">*</span>
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-large" style="width: 100%; background: var(--primary);" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        
+                        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--gray);">
+                            <i class="fas fa-lock"></i> Secure form powered by Formspree
+                        </p>
+                    </div>
+                </form>
+                
+                <!-- Success Message -->
+                <div id="form-success" style="display: none; background: var(--secondary); color: var(--dark); padding: 2rem; border-radius: 10px; margin-top: 2rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Message Sent Successfully!</h3>
+                    <p style="margin: 1rem 0;">Thank you for your inquiry. I will get back to you within 24 hours.</p>
+                    <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <h4>What happens next:</h4>
+                        <ol style="text-align: left; padding-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Check your email for confirmation</li>
+                            <li>I'll review your project details</li>
+                            <li>You'll receive a detailed quote</li>
+                            <li>We'll schedule a free consultation</li>
+                        </ol>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="index.html" class="btn" style="margin-right: 0.5rem;">Return Home</a>
+                        <a href="portfolio.html" class="btn" style="background: white; color: var(--primary);">View Portfolio</a>
+                    </div>
+                </div>
+                
+                <!-- Error Message -->
+                <div id="form-error" style="display: none; background: #ff6b6b; color: white; padding: 2rem; border-radius: 10px; margin-top: 2rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Error Sending Message</h3>
+                    <p style="margin: 1rem 0;">There was an error submitting your form. Please try again or contact me directly.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="mailto:zyredex@gmail.com" class="btn" style="background: white; color: #ff6b6b;">Email Me Directly</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Contact Information -->
+            <div>
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Contact Information</h2>
+                
+                <!-- Contact Methods -->
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Email</h3>
+                        <p>Best for detailed project discussions and formal inquiries.</p>
+                        <a href="mailto:zyredex@gmail.com" class="btn" style="margin-top: 0.5rem; padding: 0.5rem 1.5rem;">
+                            zyredex@gmail.com
+                        </a>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--gray);">
+                            <i class="fas fa-clock"></i> Response time: Usually within 12-24 hours
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon" style="background: #5865F2;">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Discord</h3>
+                        <p>For quick questions, live chat, or to join my community.</p>
+                        <p><strong>Username:</strong> redeex or abanokh.off</p>
+                        <a href="https://discord.gg/JgxsvNQJrV" class="btn" style="margin-top: 0.5rem; padding: 0.5rem 1.5rem; background: #5865F2;">
+                            <i class="fab fa-discord"></i> Join Discord Server
+                        </a>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--gray);">
+                            <i class="fas fa-clock"></i> Usually online: 9 AM - 6 PM EST
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon" style="background: var(--secondary); color: var(--dark);">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Consultation Call</h3>
+                        <p>Schedule a free 30-minute call to discuss your project.</p>
+                        <a href="#" class="btn" style="margin-top: 0.5rem; padding: 0.5rem 1.5rem; background: var(--secondary); color: var(--dark);">
+                            <i class="fas fa-calendar-alt"></i> Schedule Call
+                        </a>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--gray);">
+                            <i class="fas fa-info-circle"></i> Available Monday-Friday, 10 AM - 4 PM EST
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Process Timeline -->
+                <div class="card" style="margin-top: 2rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-list-ol"></i> My Process</h3>
+                    <div style="position: relative; padding-left: 2rem;">
+                        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--primary);"></div>
+                        
+                        <div style="position: relative; margin-bottom: 1.5rem;">
+                            <div style="position: absolute; left: -2.4rem; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; border: 4px solid white;"></div>
+                            <h4 style="margin-bottom: 0.5rem;">1. Initial Contact</h4>
+                            <p>You fill out the form or contact me directly.</p>
+                        </div>
+                        
+                        <div style="position: relative; margin-bottom: 1.5rem;">
+                            <div style="position: absolute; left: -2.4rem; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; border: 4px solid white;"></div>
+                            <h4 style="margin-bottom: 0.5rem;">2. Free Consultation</h4>
+                            <p>We discuss your project in detail (30 mins free).</p>
+                        </div>
+                        
+                        <div style="position: relative; margin-bottom: 1.5rem;">
+                            <div style="position: absolute; left: -2.4rem; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; border: 4px solid white;"></div>
+                            <h4 style="margin-bottom: 0.5rem;">3. Quote & Proposal</h4>
+                            <p>I provide a detailed quote and timeline.</p>
+                        </div>
+                        
+                        <div style="position: relative; margin-bottom: 1.5rem;">
+                            <div style="position: absolute; left: -2.4rem; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; border: 4px solid white;"></div>
+                            <h4 style="margin-bottom: 0.5rem;">4. Project Start</h4>
+                            <p>Once approved, I start working immediately.</p>
+                        </div>
+                        
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -2.4rem; top: 0; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; border: 4px solid white;"></div>
+                            <h4 style="margin-bottom: 0.5rem;">5. Delivery & Support</h4>
+                            <p>Project delivery with ongoing support included.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tips Card -->
+                <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 100%); color: white;">
+                    <h3 style="color: var(--secondary);"><i class="fas fa-lightbulb"></i> Tips for Best Results</h3>
+                    <ul class="feature-list" style="color: #ccc; margin-top: 1rem;">
+                        <li>Be specific about what you want to achieve</li>
+                        <li>Include examples or references if available</li>
+                        <li>Mention your budget if you have one</li>
+                        <li>Be clear about your timeline expectations</li>
+                        <li>Share any existing assets or materials</li>
+                    </ul>
+                </div>
+                
+                <!-- Security Badge -->
+                <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border: 2px solid var(--primary);">
+                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">100% Secure & Private</h4>
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--secondary); margin-bottom: 0.5rem;"></i>
+                            <p style="font-size: 0.9rem; margin: 0;">SSL Encrypted</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <i class="fas fa-user-shield" style="font-size: 2rem; color: var(--secondary); margin-bottom: 0.5rem;"></i>
+                            <p style="font-size: 0.9rem; margin: 0;">No Spam</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <i class="fas fa-lock" style="font-size: 2rem; color: var(--secondary); margin-bottom: 0.5rem;"></i>
+                            <p style="font-size: 0.9rem; margin: 0;">Privacy First</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--gray); margin: 0;">
+                        Your information is never shared with third parties.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="background-color: #f0f4f8; padding: 4rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">Frequently Asked Questions</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="card" style="margin-bottom: 1rem;">
+                    <h3><i class="fas fa-question-circle" style="color: var(--primary);"></i> How soon will you respond?</h3>
+                    <p>I typically respond within 12-24 hours, often faster during business hours (9 AM - 6 PM EST, Monday-Friday). You'll receive an auto-confirmation email immediately.</p>
+                </div>
+                
+                <div class="card" style="margin-bottom: 1rem;">
+                    <h3><i class="fas fa-comments" style="color: var(--primary);"></i> Do you offer free consultations?</h3>
+                    <p>Yes! I offer a free 30-minute consultation call to discuss your project. Just mention in your message that you'd like a consultation, or schedule one using the button above.</p>
+                </div>
+                
+                <div class="card" style="margin-bottom: 1rem;">
+                    <h3><i class="fas fa-file-invoice-dollar" style="color: var(--primary);"></i> What information do you need for a quote?</h3>
+                    <p>For an accurate quote, I need: Project description, desired features, timeline, and any specific requirements. The more detail, the better!</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-clock" style="color: var(--primary);"></i> What's your typical turnaround time?</h3>
+                    <p>It depends on the project complexity:
+                    <br>• Discord bots: 1-2 weeks
+                    <br>• Websites: 2-3 weeks
+                    <br>• Custom projects: 3-4 weeks
+                    <br>Rush delivery is available for additional cost.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">Ready to Get Started?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem; opacity: 0.9;">
+                Fill out the form above or contact me directly. Let's bring your ideas to life!
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#contactForm" class="btn" style="background: white; color: var(--primary);">
+                    <i class="fas fa-arrow-up"></i> Back to Form
+                </a>
+                <a href="mailto:zyredex@gmail.com" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Email Directly
+                </a>
+                <a href="portfolio.html" class="btn" style="background: transparent; border: 2px solid white;">
+                    <i class="fas fa-eye"></i> View Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DevServices</h3>
+                    <p>Professional Discord and web development services. Custom solutions for communities and businesses.</p>
+                    <p style="margin-top: 0.5rem;">
+                        <i class="fas fa-envelope"></i> zyredex@gmail.com
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Form</a></li>
+                        <li><a href="mailto:zyredex@gmail.com">Email Directly</a></li>
+                        <li><a href="https://discord.gg/JgxsvNQJrV" target="_blank">Discord Server</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 DevServices. All rights reserved. | Email: zyredex@gmail.com | Form ID: xgowrnnb</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Form handling
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formSuccess = document.getElementById('form-success');
+            const formError = document.getElementById('form-error');
+            
+            if (contactForm) {
+                // Pre-fill service from URL parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const serviceParam = urlParams.get('service');
+                if (serviceParam) {
+                    const serviceSelect = document.getElementById('service');
+                    if (serviceSelect) {
+                        const optionMap = {
+                            'discord-bot': 'Discord Bot Development',
+                            'server-setup': 'Discord Server Setup',
+                            'website': 'Website Development',
+                            'custom-project': 'Custom Project'
+                        };
+                        
+                        if (optionMap[serviceParam]) {
+                            for (let i = 0; i < serviceSelect.options.length; i++) {
+                                if (serviceSelect.options[i].text === optionMap[serviceParam]) {
+                                    serviceSelect.selectedIndex = i;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // Form submission
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading state
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+                    
+                    try {
+                        // Submit to Formspree
+                        const formData = new FormData(contactForm);
+                        
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            // Success
+                            contactForm.style.display = 'none';
+                            formSuccess.style.display = 'block';
+                            formError.style.display = 'none';
+                            
+                            // Scroll to success message
+                            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            
+                            // Log success (for debugging)
+                            console.log('Form submitted successfully to Formspree');
+                        } else {
+                            // Error
+                            throw new Error('Formspree submission failed');
+                        }
+                        
+                    } catch (error) {
+                        console.error('Form submission error:', error);
+                        
+                        // Show error message
+                        formError.style.display = 'block';
+                        formSuccess.style.display = 'none';
+                        
+                        // Scroll to error
+                        formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href.startsWith('#') && href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            window.scrollTo({
+                                top: target.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Close mobile menu if open
+                            if (navLinks && navLinks.classList.contains('active')) {
+                                navLinks.classList.remove('active');
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Auto-expand textarea
+            const textarea = document.getElementById('message');
+            if (textarea) {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                });
+            }
+        });
+    </script>
+    <!-- Add this HTML before closing </body> tag -->
+<div id="scheduleModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; align-items: center; justify-content: center;">
+    <div style="background: white; padding: 2rem; border-radius: 10px; max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h2 style="color: var(--primary); margin: 0;">Schedule Consultation</h2>
+            <button onclick="closeScheduleModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray);">&times;</button>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">Available Time Slots</h3>
+            <div id="timeSlots" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+                <!-- Time slots will be generated by JavaScript -->
+            </div>
+        </div>
+        
+        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">How it works:</h4>
+            <ol style="padding-left: 1.5rem; margin: 0;">
+                <li>Select your preferred time slot</li>
+                <li>You'll receive a confirmation email</li>
+                <li>I'll send the meeting link 1 hour before</li>
+                <li>Join via Google Meet or Discord</li>
+            </ol>
+        </div>
+        
+        <div style="margin-top: 1.5rem;">
+            <p style="font-size: 0.9rem; color: var(--gray); text-align: center;">
+                <i class="fas fa-info-circle"></i> Can't find a suitable time? 
+                <a href="mailto:zyredex@gmail.com?subject=Custom%20Consultation%20Time">Email me for custom scheduling</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+// Schedule Modal Functionality
+function openScheduleModal() {
+    document.getElementById('scheduleModal').style.display = 'flex';
+    generateTimeSlots();
+}
+
+function closeScheduleModal() {
+    document.getElementById('scheduleModal').style.display = 'none';
+}
+
+function generateTimeSlots() {
+    const timeSlotsContainer = document.getElementById('timeSlots');
+    timeSlotsContainer.innerHTML = '';
+    
+    // Generate next 7 days of time slots
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+    const times = ['10:00 AM', '2:00 PM', '4:00 PM'];
+    
+    let slotCount = 0;
+    
+    for (let i = 0; i < 7; i++) {
+        const date = new Date();
+        date.setDate(date.getDate() + i);
+        const dayName = days[date.getDay() - 1];
+        
+        // Only show Monday-Friday
+        if (dayName && slotCount < 8) {
+            times.forEach(time => {
+                if (slotCount < 8) { // Limit to 8 slots
+                    const button = document.createElement('button');
+                    button.className = 'btn';
+                    button.style.cssText = 'width: 100%; padding: 0.8rem; margin-bottom: 0.5rem; text-align: center;';
+                    button.innerHTML = `
+                        <div style="font-weight: bold;">${dayName}</div>
+                        <div style="font-size: 0.9rem;">${time}</div>
+                    `;
+                    
+                    button.onclick = function() {
+                        bookTimeSlot(`${dayName} at ${time}`);
+                    };
+                    
+                    timeSlotsContainer.appendChild(button);
+                    slotCount++;
+                }
+            });
+        }
+    }
+}
+
+function bookTimeSlot(time) {
+    // Send email to you with the booking request
+    const emailBody = `Hi Zyredex,%0D%0A%0D%0AI would like to schedule a consultation at ${time}.%0D%0A%0D%0APlease send me the meeting details.%0D%0A%0D%0ABest regards,`;
+    
+    window.location.href = `mailto:zyredex@gmail.com?subject=Consultation%20Booking%20Request&body=${emailBody}`;
+    
+    // Close modal
+    closeScheduleModal();
+    
+    // Show confirmation
+    alert('Please check your email to complete the booking. I will send you the meeting link.');
+}
+
+// Close modal when clicking outside
+document.getElementById('scheduleModal').addEventListener('click', function(e) {
+    if (e.target.id === 'scheduleModal') {
+        closeScheduleModal();
+    }
+});
+
+// Update the schedule button to use the modal
+document.addEventListener('DOMContentLoaded', function() {
+    const scheduleBtn = document.querySelector('a[href="#"]');
+    if (scheduleBtn && scheduleBtn.textContent.includes('Schedule')) {
+        scheduleBtn.href = 'javascript:void(0)';
+        scheduleBtn.onclick = openScheduleModal;
+    }
+});
+</script>
+</body>
+</html>
